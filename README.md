@@ -2,11 +2,14 @@
 
 > UI Library built in VueJS. Inspired by [GOV.UK React Compoonent Library](https://github.com/UKHomeOffice/govuk-react)
 
+## Installation
+(You can replace `yarn` with `npm run`).
+
+```bash
+yarn
+```
 
 ## Commands
-
-You can replace `yarn` with `npm run` here.
-
 ### Build for production
 ```bash
 yarn build
