@@ -6,6 +6,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "create-component": "node ./scripts/create-component.js",
     "dev": "poi",
     "build": "poi build",
     "report": "poi build --bundle-report",
@@ -18,6 +19,7 @@
     "email": "markips@gmail.com"
   },
   "dependencies": {
+    "mkdirp-promise": "^5.0.1",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
     "promise-polyfill": "^6.0.2",
