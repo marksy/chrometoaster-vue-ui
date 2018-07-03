@@ -22,40 +22,6 @@ const writeFile = (filename, contents) => {
   return false;
 };
 
-// write packageJson file
-// const packageJson = () => {
-//   const filename = 'package.json';
-//   // TODO: this should pull in devDependencies version numbers from package.json
-//   // in the root or from another component so it doesn't need to be maintained.
-//   // also I'm not sure we need the storybook addons for all components,
-//   // can be added manually per component perhaps.
-//   const contents = `{
-//   "name": "@govuk-react/${componentFolderName}",
-//   "version": "${version}",
-//   "private": false,
-//   "publishConfig": {
-//     "access": "public"
-//   },
-//   "dependencies": {
-//     "govuk-colours": "^1.0.3"
-//   },
-//   "peerDependencies": {
-//     "glamorous": ">=4",
-//     "prop-types": ">=15",
-//     "react": ">=15"
-//   },
-//   "scripts": {
-//     "build": "npm run build:lib && npm run build:es",
-//     "build:lib": "rimraf lib && babel src -d lib --source-maps",
-//     "build:es": "rimraf es && cross-env BABEL_ENV=es babel src -d es --source-maps"
-//   },
-//   "main": "lib/index.js",
-//   "module": "es/index.js"
-// }
-// `;
-//   writeFile(filename, contents);
-// };
-
 // write test.js file
 const testScript = () => {
   const filename = 'test.js';
@@ -65,10 +31,13 @@ import ${componentName} from './';
 Vue.config.productionTip = false
 
 describe('<${componentFolderName} />', () => {
+  const Component = Vue.extend(${componentName})
   it('does not crash', () => {
-    const Component = Vue.extend(${componentName})
     const vm = new Component().$mount()
-    expect(vm.$el.textContent).toMatch(/Example/)
+    expect(vm.$el.textContent).toMatch(/${componentName}/)
+  });
+  it('matches wrapper snapshot', () => {
+    expect(Component).toMatchSnapshot('Component mount');
   });
 });
 `;

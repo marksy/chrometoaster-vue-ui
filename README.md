@@ -47,7 +47,8 @@ Run `yarn report` to get a report of bundle size which helps you:
 - Optimize it!
 
 # TODO
-- add snapshots to testing
+- ~add snapshots to testing~
+- add code coverage
 - add more atomic components
 - create CI pipeline
 
