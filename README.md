@@ -21,6 +21,12 @@ yarn serve
 
 # Storybook presentation layer
 yarn storybook
+
+# Storybook presentation layer
+To create a new component use lower-kebab case:
+
+yarn create-component `component-name`
+
 ```
 
 ## Polyfills
