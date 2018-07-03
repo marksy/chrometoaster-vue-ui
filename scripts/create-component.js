@@ -72,21 +72,21 @@ export default () => (<${componentFolderName.toLocaleLowerCase()}>${componentNam
   writeFile(filename, contents);
 };
 
-// write index.js file
+// write index.vue file
 const indexScript = () => {
   const filename = 'index.vue';
   const contents = `// TODO INSERT A COMMENT REFERENCE TO EXTERNAL URL IF POSSIBLE
 
 <template>
-  <p class="${componentFolderName}">{{children}}</p>
+  <p :class="className"><slot>${componentName}</slot></p>
 </template>
 
 <script>
   export default {
     props: {
-      children: {
+      className: {
         type: String,
-        default: '${componentName}',
+        default: '${componentFolderName}',
       },
     },
   }
