@@ -15,19 +15,19 @@
         Checkout <code>./README.md</code> for more usages.
       </span>
     </div>
-    <Test />
-    <Test greeting="whaat" greeting-style="success" />
+    <Example />
+    <Example greeting="whaat" greeting-style="success" />
   </div>
 
 </template>
 
 <script>
-  import Test from './baseInput'
+  import Example from './example'
   
   export default {
     name: 'app',
     components: {
-      Test
+      Example
     },
   }
 </script>
