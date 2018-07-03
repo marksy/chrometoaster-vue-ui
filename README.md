@@ -1,6 +1,7 @@
 # chrometoaster-vue-ui
 
-> UI Library built in VueJS
+> UI Library built in VueJS. Inspired by [GOV.UK React Compoonent Library](https://github.com/UKHomeOffice/govuk-react)
+
 
 ## Commands
 
@@ -23,7 +24,7 @@ yarn serve
 yarn storybook
 
 # Storybook presentation layer
-To create a new component use lower-kebab case:
+> To create a new component use lower-kebab case:
 
 yarn create-component `component-name`
 
