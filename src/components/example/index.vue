@@ -1,15 +1,11 @@
 <template>
-	<p class="greeting" :class="greetingStyle">{{greeting}}</p>
+	<p class="greeting" :class="className"><slot>Example</slot></p>
 </template>
 
 <script>
 	export default {
 		props: {
-			greeting: {
-				type: String,
-				default: 'Example',
-			},
-			greetingStyle: {
+			className: {
 				type: String,
 				default: '',
 			}
@@ -26,7 +22,7 @@
 		padding: 12px;
 		display: inline-block;
 	}
-	.greeting.success {
+	.greeting--success {
 		border: 1px solid rgba(0,255,0,1);
 		background-color: rgba(0,255,0,0.1);
 	}

@@ -11,10 +11,10 @@ import Example from './';
 	}))
 	.add('with custom greeting', () => ({
 	  components: { Example },
-	  template: '<example greeting="No!" />',
+	  template: '<example>No!</example>',
 	}))
 	.add('with custom greeting and style', () => ({
 	  components: { Example },
-	  template: '<example greeting="Great job!" greeting-style="success" />',
+	  template: '<example className="greeting--success">Great job!</example>',
 	}))
 ;
