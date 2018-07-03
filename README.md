@@ -7,27 +7,27 @@
 
 You can replace `yarn` with `npm run` here.
 
-### build for production
+### Build for production
 ```bash
 yarn build
 ```
-# development mode
+### Development mode
 ```bash
 yarn dev
 ```
-# run unit tests
+### Run unit tests (with snapshots)
 ```bash
 yarn test
 ```
-# serve the bundled dist folder in production mode
+### Serve the bundled dist folder in production mode
 ```bash
 yarn serve
 ```
-# Storybook presentation layer
+### Storybook presentation layer
 ```bash
 yarn storybook
 ```
-# Storybook presentation layer
+### Create a component
 > To create a new component use lower-kebab case:
 ```bash
 yarn create-component `component-name`
