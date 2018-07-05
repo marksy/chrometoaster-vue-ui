@@ -25,7 +25,9 @@ const writeFile = (filename, contents) => {
 // write test.js file
 const testScript = () => {
   const filename = 'test.js';
-  const contents = `import Vue from 'vue'
+  const contents = `import Vue from 'vue';
+import { shallow } from 'vue-test-utils';
+import { createRenderer } from 'vue-server-renderer';
 import ${componentName} from './';
 
 Vue.config.productionTip = false
@@ -36,8 +38,19 @@ describe('<${componentFolderName} />', () => {
     const vm = new Component().$mount()
     expect(vm.$el.textContent).toMatch(/${componentName}/)
   });
+  it('allows props to be passed in', () => {
+    const vm = new Component({ propsData: {
+      className: '${componentFolderName}--alt'
+    }}).$mount();
+    expect(vm.$el.classList).toContain('${componentFolderName}--alt');
+  });
   it('matches wrapper snapshot', () => {
-    expect(Component).toMatchSnapshot('Component mount');
+    const renderer = createRenderer();
+    const wrapper = shallow(Component);
+    renderer.renderToString(wrapper.vm, (err, str) => {
+      if (err) throw new Error(err);
+      expect(str).toMatchSnapshot();
+    });
   });
 });
 `;
@@ -61,24 +74,13 @@ import ${componentName} from '.';
   writeFile(filename, contents);
 };
 
-// write example.js file
-const exampleScript = () => {
-  const filename = 'example.js';
-  const contents = `import Vue from 'vue';
-import ${componentName} from '.';
-
-export default () => (<${componentFolderName.toLocaleLowerCase()}>${componentName} example</${componentFolderName.toLocaleLowerCase()}>);
-`;
-  writeFile(filename, contents);
-};
-
 // write index.vue file
 const indexScript = () => {
   const filename = 'index.vue';
   const contents = `// TODO INSERT A COMMENT REFERENCE TO EXTERNAL URL IF POSSIBLE
 
 <template>
-  <p :class="className"><slot>${componentName}</slot></p>
+  <p class="${componentFolderName}" :class="className"><slot>${componentName}</slot></p>
 </template>
 
 <script>
@@ -101,6 +103,10 @@ const indexScript = () => {
     padding: 12px;
     display: inline-block;
   }
+  .${componentFolderName}--alt {
+    border: 1px solid rgba(255,0,0,1);
+    background-color: rgba(255,0,0,0.1);
+  }
 </style>
 `;
   writeFile(filename, contents);
@@ -113,10 +119,8 @@ Please use a different name or delete the existing folder 🆗`);
     return false;
   }
   mkdirp(`${folderName}/`).then(() => {
-    // packageJson();
     testScript();
     storiesScript();
-    exampleScript();
     indexScript();
     console.log(`✅  The component '${componentName}' was created successfully`);
   });

@@ -13,6 +13,13 @@ describe('<example />', () => {
 		expect(vm.$el.textContent).toMatch(/Example/);
 	});
 
+	it('allows props to be passed in', () => {
+		const vm = new Component({ propsData: {
+			className: 'greeting--success'
+		}}).$mount();
+		expect(vm.$el.classList).toContain('greeting--success');
+	});
+
 	it('matches wrapper snapshot', () => {
 		const renderer = createRenderer();
 		const wrapper = shallow(Component);
