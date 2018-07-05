@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<base-select /> matches wrapper snapshot 1`] = `"<select data-server-rendered=\\"true\\" class=\\"base-select\\">BaseSelect</select>"`;

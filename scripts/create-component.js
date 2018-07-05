@@ -89,7 +89,7 @@ const indexScript = () => {
     props: {
       className: {
         type: String,
-        default: '${componentFolderName}',
+        default: '',
       },
     },
   }

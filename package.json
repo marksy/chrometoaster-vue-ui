@@ -22,6 +22,7 @@
     "<rootDir>/node_modules/jest-serializer-vue"
   ],
   "dependencies": {
+    "@storybook/addon-knobs": "^3.4.8",
     "jest-serializer-vue": "^2.0.2",
     "mkdirp-promise": "^5.0.1",
     "normalize.css": "^7.0.0",

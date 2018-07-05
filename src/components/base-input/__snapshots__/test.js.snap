@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<base-input /> matches wrapper snapshot 1`] = `"<input type=\\"text\\" data-server-rendered=\\"true\\" class=\\"base-input\\">"`;
