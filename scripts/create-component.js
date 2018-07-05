@@ -85,6 +85,7 @@ const indexScript = () => {
 
 <script>
   export default {
+    name: '${componentName}',
     props: {
       className: {
         type: String,

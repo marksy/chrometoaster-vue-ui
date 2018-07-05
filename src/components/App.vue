@@ -15,7 +15,6 @@
         Checkout <code>./README.md</code> for more usages.
       </span>
     </div>
-    <header-test className="header-test--alt">hi</header-test>
     <example className="greeting--success" />
   </div>
 

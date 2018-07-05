@@ -4,6 +4,7 @@
 
 <script>
 	export default {
+		name: 'Example',
 		props: {
 			className: {
 				type: String,
