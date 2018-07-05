@@ -18,13 +18,19 @@
     "name": "marksy",
     "email": "markips@gmail.com"
   },
+  "snapshotSerializers": [
+    "<rootDir>/node_modules/jest-serializer-vue"
+  ],
   "dependencies": {
+    "jest-serializer-vue": "^2.0.2",
     "mkdirp-promise": "^5.0.1",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
     "promise-polyfill": "^6.0.2",
     "vue": "^2.5.16",
-    "vue-loader": "^14.2.1"
+    "vue-loader": "^14.2.1",
+    "vue-server-renderer": "^2.5.16",
+    "vue-test-utils": "^1.0.0-beta.11"
   },
   "devDependencies": {
     "@storybook/vue": "^3.4.8",

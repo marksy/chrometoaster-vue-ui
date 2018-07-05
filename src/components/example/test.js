@@ -1,17 +1,24 @@
 import Vue from 'vue';
+import { shallow } from 'vue-test-utils';
+import { createRenderer } from 'vue-server-renderer';
 import Example from './';
 
 Vue.config.productionTip = false;
 
 describe('<example />', () => {
-	const Component = Vue.extend(Example)
+	const Component = Vue.extend(Example);
 
 	it('does not crash', () => {
-		const vm = new Component().$mount()
-		expect(vm.$el.textContent).toMatch(/Example/)
+		const vm = new Component().$mount();
+		expect(vm.$el.textContent).toMatch(/Example/);
 	});
 
 	it('matches wrapper snapshot', () => {
-		expect(Component).toMatchSnapshot('Component mount');
+		const renderer = createRenderer();
+		const wrapper = shallow(Component);
+		renderer.renderToString(wrapper.vm, (err, str) => {
+			if (err) throw new Error(err);
+			expect(str).toMatchSnapshot();
+		});
 	});
 });
