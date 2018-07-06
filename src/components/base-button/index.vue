@@ -1,7 +1,7 @@
 // TODO INSERT A COMMENT REFERENCE TO EXTERNAL URL IF POSSIBLE
 
 <template>
-  <button class="base-button" :class="className"><slot>BaseButton</slot></button>
+  <button class="base-button" :class="className" @click="onClick" :disabled="isDisabled"><slot>BaseButton</slot></button>
 </template>
 
 <script>
@@ -11,6 +11,14 @@
       className: {
         type: String,
         default: '',
+      },
+      onClick: {
+        type: Function,
+        default: () => () => null
+      },
+      isDisabled: {
+        type: Boolean,
+        default: false,
       },
     },
   }
@@ -24,8 +32,15 @@
     background-color: rgba(0,0,0,0.1);
     padding: 12px;
   }
-  .base-button--alt {
+  .base-button--primary {
     border: 1px solid rgba(255,0,0,1);
     background-color: rgba(255,0,0,0.1);
+  }
+  .base-button--secondary {
+    border: 1px solid rgba(0,255,0,1);
+    background-color: rgba(0,255,0,0.1);
+  }
+  .base-button[disabled] {
+    opacity: 0.3;
   }
 </style>

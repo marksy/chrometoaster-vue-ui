@@ -15,18 +15,30 @@
         Checkout <code>./README.md</code> for more usages.
       </span>
     </div>
-    <example className="greeting--success" />
+    <Example class-name="greeting--success" />
+    <BaseButton class-name="test" :onClick="consoleClick">console</BaseButton>
+    <BaseButton class-name="test" :onClick="alertClick">alert</BaseButton>
   </div>
 
 </template>
 
 <script>
   import Example from './example';
+  import BaseButton from './base-button';
   
   export default {
     name: 'app',
     components: {
       Example,
+      BaseButton,
+    },
+     methods: {
+      consoleClick() {
+        console.log('Hi from console');
+      },
+      alertClick() {
+        alert('hi from alert');
+      }
     },
   }
 </script>

@@ -1,7 +1,7 @@
 // TODO INSERT A COMMENT REFERENCE TO EXTERNAL URL IF POSSIBLE
 
 <template>
-  <button type="submit" class="base-submit" :class="className"><slot>BaseSubmit</slot></button>
+  <button type="submit" class="base-submit" :class="className" @click="onClick" :disabled="isDisabled"><slot>BaseSubmit</slot></button>
 </template>
 
 <script>
@@ -11,6 +11,14 @@
       className: {
         type: String,
         default: '',
+      },
+      onClick: {
+        type: Function,
+        default: () => () => null
+      },
+      isDisabled: {
+        type: Boolean,
+        default: false,
       },
     },
   }
@@ -27,5 +35,8 @@
   .base-submit--alt {
     border: 1px solid rgba(255,0,0,1);
     background-color: rgba(255,0,0,0.1);
+  }
+  .base-submit[disabled] {
+    opacity: 0.3;
   }
 </style>
